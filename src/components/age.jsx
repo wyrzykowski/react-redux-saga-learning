@@ -24,6 +24,7 @@ height:50px;
 class Age extends Component {
 
     render() {
+        console.log(this.props.data.datetime)
         return (
             <div className="App">
                 <AgeDisplayWrapper >Age: <span>{this.props.age}</span></AgeDisplayWrapper >
@@ -45,6 +46,16 @@ class Age extends Component {
 
                 <AgeButton onClick={this.props.onAUp}>A Up</AgeButton>
                 <AgeButton onClick={this.props.onBUp}>B Up</AgeButton>
+                <br />
+                <br />
+                <br />
+                <br />
+                <h2>data: {this.props.data.datetime}</h2>
+                <br />
+                <br />
+                <AgeButton onClick={this.props.onPageChange}>Get Api Data</AgeButton>
+
+
 
             </div>
         );
@@ -57,7 +68,8 @@ const mapDispatchToProps = (dispatch) => {
         onAgeUp: () => dispatch({ type: 'AGE_UP', value: 1 }),
         onAgeDown: () => dispatch({ type: 'AGE_DOWN', value: 1 }),
         onAUp: () => dispatch({ type: 'A_UP', valueA: 1 }),
-        onBUp: () => dispatch({ type: 'B_UP', valueB: 1 })
+        onBUp: () => dispatch({ type: 'B_UP', valueB: 1 }),
+        onPageChange: () => dispatch({ type: 'GET_DATA', currentPage: 20 })
     }
 }
 
@@ -66,7 +78,8 @@ const mapStateToProps = (state) => {
         age: state.r.age,
         data: state.r.data,
         a: state.rA.a,
-        b: state.rB.b
+        b: state.rB.b,
+        data: state.r.apiData
     }
 }
 //to niżej zwórci mi hight level component

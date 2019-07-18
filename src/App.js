@@ -9,7 +9,7 @@ import FlexComponent from './components/flexComponent';
 function App() {
   return (
     <div className="App">
-      <FlexComponent />
+      {/* <FlexComponent /> */}
       <ShowAge />
       {/* <ShowHistory /> */}
       <Age />

@@ -2,6 +2,7 @@ const initialState = {
     age: 21,
     data: {},
     history: [],
+    apiData: {}
 }
 
 const reducer = (state = initialState, action) => {
@@ -10,7 +11,7 @@ const reducer = (state = initialState, action) => {
 
     switch (action.type) {
         //Nazwa akcji nawiazuje do tej w sadze, a dispatcher bedzie sie nazywal jak ta co wywoluje sage [SAGA]
-        case "AGE_UP_ASYNC":
+        case "AGE_UP":
             return {
                 ...state,
                 data: action.data,
@@ -26,6 +27,14 @@ const reducer = (state = initialState, action) => {
                 history: state.history.concat({ age: state.age - action.value })
             }
             break;
+        case "GET_DATA_SUCCESS":
+            return {
+                ...state,
+                apiData: action.data.data,
+            }
+            break;
+
+
 
         default: return newState;
 
